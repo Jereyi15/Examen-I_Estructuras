@@ -9,6 +9,17 @@ Juego::Juego()
 
     int option = 0;
 principal:
+    cjnJugadores.agregar(player = new Jugador("Felipe"));
+    cjnJugadores.agregar(player = new Jugador("Jeremy"));
+    cjnJugadores.agregar(player = new Jugador("Irina"));
+    cjnJugadores.agregar(player = new Jugador("Gabriel"));
+    cjnJugadores.agregar(player = new Jugador("Pablo"));
+
+    cartas.crearBaraja();
+    cout << "Baraja creada con exito." << endl;
+    system("pause");
+    system("cls");
+
     do {
         system("cls");
      option = menusJuego::mainMenu();
@@ -58,12 +69,6 @@ void Juego::jugadoresM()
 {
     int opt1 = 0;
     string nombre;
-
-    cjnJugadores.agregar(player = new Jugador("Felipe"));
-    cjnJugadores.agregar(player = new Jugador("Jeremy"));
-    cjnJugadores.agregar(player = new Jugador("Irina"));
-    cjnJugadores.agregar(player = new Jugador("Gabriel"));
-    cjnJugadores.agregar(player = new Jugador("Pablo"));
 
     do {
       opt1 = menusJuego::jugadores();
@@ -115,28 +120,22 @@ void Juego::cartasM()
 
         switch (opt2) {
         case 1:
-            system("cls");
-            // Primero se mostraran las cartas de color rojo y luego las de color negro
-            cout << "Baraja recien creada: " << endl;
-            cartas.crearBaraja();
+            cout << cartas.toString();
+            system("pause");
             break;
 
         case 2:
-            cout << cartas.toString();
+            system("cls");
+            cartas.barajarCartas();
+            cout << "Baraja recien barajada con exito." << endl;
             system("pause");
             break;
 
         case 3:
             system("cls");
-            cout << "Baraja recien barajada: " << endl;
-            cartas.barajarCartas();
-            system("pause");
-            break;
-
-        case 4:
-            system("cls");
-            cout << "Baraja recien ordenada: " << endl;
             cartas.ordenarCartas();
+            cout << "Baraja ordenada con exito." << endl;
+            system("pause");
             break;
         default:
             menusJuego::porDefecto();
@@ -146,7 +145,7 @@ void Juego::cartasM()
 
         }
         system("cls");
-    } while (opt2 != 5);
+    } while (opt2 != 4);
 
 }
 void Juego::instruccionesYreglas() {
