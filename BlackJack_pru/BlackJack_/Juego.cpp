@@ -9,6 +9,12 @@ Juego::Juego()
 
     int option = 0;
 principal:
+    cjnJugadores.agregar(player = new Jugador("Felipe"));
+    cjnJugadores.agregar(player = new Jugador("Jeremy"));
+    cjnJugadores.agregar(player = new Jugador("Irina"));
+    cjnJugadores.agregar(player = new Jugador("Gabriel"));
+    cjnJugadores.agregar(player = new Jugador("Pablo"));
+
     cartas.crearBaraja();
     cout << "Baraja creada con exito." << endl;
     system("pause");
@@ -63,12 +69,6 @@ void Juego::jugadoresM()
 {
     int opt1 = 0;
     string nombre;
-
-    cjnJugadores.agregar(player = new Jugador("Felipe"));
-    cjnJugadores.agregar(player = new Jugador("Jeremy"));
-    cjnJugadores.agregar(player = new Jugador("Irina"));
-    cjnJugadores.agregar(player = new Jugador("Gabriel"));
-    cjnJugadores.agregar(player = new Jugador("Pablo"));
 
     do {
       opt1 = menusJuego::jugadores();
