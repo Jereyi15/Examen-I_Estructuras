@@ -112,5 +112,6 @@ string ConjuntoCartas::toString()
     for (it = cartas.begin(); it != cartas.end(); it++) {
         s << it->toString() << "  -  ";
     }
+    s << endl<<endl;
     return s.str();
 }

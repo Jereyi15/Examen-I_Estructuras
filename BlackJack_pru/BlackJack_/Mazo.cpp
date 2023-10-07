@@ -1,6 +1,6 @@
 #include "Mazo.h"
 
-Mazo::Mazo() : 
+Mazo::Mazo() 
 {
 }
 
@@ -10,7 +10,7 @@ Mazo::~Mazo()
 
 void Mazo::agregarCarta(Carta* c)
 {
-	cartasJugador.push(c);
+	//cartasJugador.push(c);
 }
 
 void Mazo::sacarCarta()
