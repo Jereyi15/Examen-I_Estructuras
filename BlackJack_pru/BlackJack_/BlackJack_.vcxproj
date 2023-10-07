@@ -131,8 +131,10 @@
     <ClCompile Include="Carta.cpp" />
     <ClCompile Include="ConjuntoCartas.cpp" />
     <ClCompile Include="ConjuntoJugadores.cpp" />
+    <ClCompile Include="Crupier.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Jugador.cpp" />
+    <ClCompile Include="jugadorBase.cpp" />
     <ClCompile Include="Mazo.cpp" />
     <ClCompile Include="menusJuego.cpp" />
   </ItemGroup>
@@ -140,8 +142,10 @@
     <ClInclude Include="Carta.h" />
     <ClInclude Include="ConjuntoCartas.h" />
     <ClInclude Include="ConjuntoJugadores.h" />
+    <ClInclude Include="Crupier.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Jugador.h" />
+    <ClInclude Include="jugadorBase.h" />
     <ClInclude Include="Mazo.h" />
     <ClInclude Include="menusJuego.h" />
   </ItemGroup>
