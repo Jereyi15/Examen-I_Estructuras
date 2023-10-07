@@ -83,8 +83,8 @@ void menusJuego::instrucciones() {
 	cout << " Al inicio de cada ronda cada jugador debera de hacer sus apuestas." << endl;
 	cout << " La apuesta minima por turno es de 50 monedas. " << endl;
 	cout << " Cada jugador iniciara con 500 monedas a su disposicion." << endl;
-	cout << " Se les repartira dos cartas descubiertas a cada jugador y a el crupier" << endl;
-	cout << " Una vez repartidas las dos cartas cada jugador puede decidir si plantarse, o pedir mas cartas." << endl << endl;
+	cout << " Se les repartira dos cartas descubiertas a cada jugador y a una carta descubierta al crupier" << endl;
+	cout << " Una vez repartidas las dos cartas cada jugador puede decidir si plantarse, doblar su apuesta o pedir mas cartas." << endl << endl;
 	cout << " Si el jugador obtiene el mismo valor que el crupier, recupera su apuesta." << endl;
 	cout << " Si el jugador saca un Black Jack, o supera al crupier su pago sera doble. " << endl;
 	cout << " De lo contrario el jugador pierde su apuesta y la ronda." << endl;
