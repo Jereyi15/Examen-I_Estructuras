@@ -34,3 +34,12 @@ string ConjuntoJugadores::toString()
     }
     return s.str();
 }
+
+bool ConjuntoJugadores::contadorJugadores()
+{
+    int j = jugadores.size();
+    if (j == 7) {
+        return true;
+    }
+    return false;
+}

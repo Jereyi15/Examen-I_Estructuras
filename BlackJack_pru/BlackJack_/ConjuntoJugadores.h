@@ -10,6 +10,7 @@ public:
 	void agregar(Jugador*);
 	Jugador* recuperar(string);
 	string toString();
+	bool contadorJugadores();
 private:
 	list<Jugador> jugadores;
 	list<Jugador>::iterator it;

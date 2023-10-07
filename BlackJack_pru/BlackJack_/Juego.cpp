@@ -74,13 +74,15 @@ void Juego::jugadoresM()
            menu->agregarJugadores();
 
 
-            for (int i = 0; i < 2; i++) {
-                cout << "Nombre del jugador: " << i + 1 << "- ";
-                cin >> nombre;
-                cout << endl;
-                cjnJugadores.agregar(player = new Jugador(nombre));
-            }
-
+           if (!cjnJugadores.contadorJugadores()) {
+               cout << "Nombre del jugador: ";
+               cin.ignore(); // Limpia el búfer de entrada
+               getline(cin, nombre);
+               cjnJugadores.agregar(player = new Jugador(nombre));
+           }
+           else {
+               cout << "Haz alcanzado el maximo de 7 jugadores para la partida.\n";
+           }
 
             system("pause");
             break;
