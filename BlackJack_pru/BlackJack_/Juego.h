@@ -1,7 +1,7 @@
 #pragma once
 #include "ConjuntoJugadores.h"
 #include "ConjuntoCartas.h"
-#include "Menus.h"
+#include "menusJuego.h"
 #include <iostream>
 using namespace std;
 
