@@ -24,7 +24,14 @@ Jugador* ConjuntoJugadores::recuperar(string _nombre)
     }
     return nullptr; // Si no se encuentra el jugador, devuelve un puntero nulo
 }
-
+void ConjuntoJugadores::eliminarJugador(Jugador* jugador) {
+    for (it = jugadores.begin(); it != jugadores.end(); ++it) {
+        if (&(*it) == jugador) {
+            jugadores.erase(it);
+            return;
+        }
+    }
+}
 
 string ConjuntoJugadores::toString()
 {
@@ -42,4 +49,7 @@ bool ConjuntoJugadores::contadorJugadores()
         return true;
     }
     return false;
+}
+int ConjuntoJugadores::cantidadJugadores() {
+    return jugadores.size();
 }

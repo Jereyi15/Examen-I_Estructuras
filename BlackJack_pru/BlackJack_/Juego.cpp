@@ -1,4 +1,3 @@
-
 #include "Juego.h"
 
 Jugador* player;
@@ -9,27 +8,26 @@ Juego::Juego()
 
     int option = 0;
 principal:
-    cjnJugadores.agregar(player = new Jugador("Felipe"));
-    cjnJugadores.agregar(player = new Jugador("Jeremy"));
-    cjnJugadores.agregar(player = new Jugador("Irina"));
-    cjnJugadores.agregar(player = new Jugador("Gabriel"));
-    cjnJugadores.agregar(player = new Jugador("Pablo"));
-
-    cartas.crearBaraja();
-    cout << "Baraja creada con exito." << endl;
-    system("pause");
-    system("cls");
-
     do {
         system("cls");
-     option = menusJuego::mainMenu();
+        option = menusJuego::mainMenu();
 
-      system("cls");
+        system("cls");
 
         switch (option) {
         case 1: {
-            instruccionesYreglas();
-            system("pause");
+            if (cjnJugadores.cantidadJugadores() == 0) {
+                cout << "Antes de comenzar el juego debe crear un jugador!" << endl;
+                system("pause");
+                break;
+            }
+            else {
+                instruccionesYreglas();
+                //Aquí comenzaria el juego
+
+                system("pause");
+                system("cls");
+            }
             break;
         }
         case 2:
@@ -37,29 +35,29 @@ principal:
             break;
 
         case 3: {
-              cartasM();
-              break;
+            cartasM();
+            break;
         }
 
-            Carta cartaTomada = cartas.tomarCarta();
-            cout << "Tomada: " << cartaTomada.toString();
+              Carta cartaTomada = cartas.tomarCarta();
+              cout << "Tomada: " << cartaTomada.toString();
 
-            system("pause");
-            system("cls");
+              system("pause");
+              system("cls");
 
 
-            if (cjnJugadores.recuperar("Pablo") != nullptr) {
-                player = cjnJugadores.recuperar("Pablo");
+              if (cjnJugadores.recuperar("Pablo") != nullptr) {
+                  player = cjnJugadores.recuperar("Pablo");
 
-                if (player->hacerApuesta(200)) {
-                    cout << "Se realizo la apuesta \n";
-                }
-                else {
-                    cout << "Esta pobre por que no le alcanzo para la apuesta \n";
-                }
-            }
-            cout << cjnJugadores.toString();
-            system("pause");
+                  if (player->hacerApuesta(200)) {
+                      cout << "Se realizo la apuesta \n";
+                  }
+                  else {
+                      cout << "Esta pobre por que no le alcanzo para la apuesta \n";
+                  }
+              }
+              cout << cjnJugadores.toString();
+              system("pause");
         }
     } while (option != 4);
 
@@ -71,25 +69,25 @@ void Juego::jugadoresM()
     string nombre;
 
     do {
-      opt1 = menusJuego::jugadores();
+        opt1 = menusJuego::jugadores();
 
         system("cls");
 
         switch (opt1) {
-        case 1: 
+        case 1:
 
-           menu->agregarJugadores();
+            menu->agregarJugadores();
 
 
-           if (!cjnJugadores.contadorJugadores()) {
-               cout << "Nombre del jugador: ";
-               cin.ignore(); // Limpia el búfer de entrada
-               getline(cin, nombre);
-               cjnJugadores.agregar(player = new Jugador(nombre));
-           }
-           else {
-               cout << "Haz alcanzado el maximo de 7 jugadores para la partida.\n";
-           }
+            if (!cjnJugadores.contadorJugadores()) {
+                cout << "Nombre del jugador: ";
+                cin.ignore(); // Limpia el búfer de entrada
+                getline(cin, nombre);
+                cjnJugadores.agregar(player = new Jugador(nombre));
+            }
+            else {
+                cout << "Haz alcanzado el maximo de 7 jugadores para la partida.\n";
+            }
 
             system("pause");
             break;
@@ -116,26 +114,32 @@ void Juego::cartasM()
 
     int opt2 = 0;
     do {
-      opt2 = menusJuego::menuCartas();
+        opt2 = menusJuego::menuCartas();
 
         switch (opt2) {
         case 1:
-            cout << cartas.toString();
-            system("pause");
+            system("cls");
+            // Primero se mostraran las cartas de color rojo y luego las de color negro
+            cout << "Baraja recien creada: " << endl;
+            cartas.crearBaraja();
             break;
 
         case 2:
-            system("cls");
-            cartas.barajarCartas();
-            cout << "Baraja recien barajada con exito." << endl;
+            cout << cartas.toString();
             system("pause");
             break;
 
         case 3:
             system("cls");
-            cartas.ordenarCartas();
-            cout << "Baraja ordenada con exito." << endl;
+            cout << "Baraja recien barajada: " << endl;
+            cartas.barajarCartas();
             system("pause");
+            break;
+
+        case 4:
+            system("cls");
+            cout << "Baraja recien ordenada: " << endl;
+            cartas.ordenarCartas();
             break;
         default:
             menusJuego::porDefecto();
@@ -145,7 +149,7 @@ void Juego::cartasM()
 
         }
         system("cls");
-    } while (opt2 != 4);
+    } while (opt2 != 5);
 
 }
 void Juego::instruccionesYreglas() {
