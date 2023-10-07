@@ -11,18 +11,7 @@ Juego::Juego()
 principal:
     do {
         system("cls");
-    //  option = menusJuego::mainMenu();
-
-      cout << "                                  ****************************" << endl;
-      cout << "                                  * * * *//BlackJack//* * * *" << endl;
-      cout << "                                  ****************************" << endl << endl << endl;
-      cout << "*******************" << endl;
-      cout << "1-Juego" << endl;
-      cout << "2-Jugadores" << endl;
-      cout << "3-Cartas" << endl;
-      cout << "4-salir" << endl;
-      cout << "*******************" << endl;
-      cin >> option;
+     option = menusJuego::mainMenu();
 
       system("cls");
 
@@ -75,23 +64,15 @@ void Juego::jugadoresM()
     cjnJugadores.agregar(player = new Jugador("Pablo"));
 
     do {
-     //  opt1 = menusJuego::jugadores();
-
-        cout << "*******************" << endl;
-        cout << "1-Agregar Jugador" << endl;
-        cout << "2-Ver jugadores" << endl;
-        cout << "3-Volver" << endl;
-        cout << "*******************" << endl;
-        cin >> opt1;
+      opt1 = menusJuego::jugadores();
 
         system("cls");
 
         switch (opt1) {
         case 1: 
 
-           // menu->agregarJugadores();
-            cout << "------Jugadores-------" << endl << endl;
-            cout << "*Ingrese su nombre* " << endl << endl;
+           menu->agregarJugadores();
+
 
             for (int i = 0; i < 2; i++) {
                 cout << "Nombre del jugador: " << i + 1 << "- ";
@@ -111,7 +92,7 @@ void Juego::jugadoresM()
             break;
 
         default:
-            //menusJuego::porDefecto();
+            menusJuego::porDefecto();
             cout << "-----Error: Codigo no valido" << endl << endl;
             system("cls");
             break;
@@ -126,18 +107,7 @@ void Juego::cartasM()
 
     int opt2 = 0;
     do {
-      //  opt2 = menusJuego::menuCartas();
-
-        cout << "*******************" << endl;
-        cout << "1-Crear/ver cartas" << endl;
-        cout << "2-Ver cartas" << endl;
-        cout << "3-Barajar" << endl;
-        cout << "4-Ordenar" << endl;
-        cout << "5-salir" << endl;
-        cout << "*******************" << endl;
-        cin >> opt2;
-
-        system("cls");
+      opt2 = menusJuego::menuCartas();
 
         switch (opt2) {
         case 1:
@@ -165,7 +135,7 @@ void Juego::cartasM()
             cartas.ordenarCartas();
             break;
         default:
-           // menusJuego::porDefecto();
+            menusJuego::porDefecto();
             cout << "-----Error: Codigo no valido" << endl << endl;
             system("cls");
             break;

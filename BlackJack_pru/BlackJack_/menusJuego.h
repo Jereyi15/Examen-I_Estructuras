@@ -4,7 +4,7 @@
 using namespace std;
 
 class menusJuego
-{/*
+{
 public:
 
 	~menusJuego();
@@ -13,6 +13,6 @@ public:
 	static int jugadores();
 	static void porDefecto();
 	static int menuCartas();
-	*/
+	
 };
 

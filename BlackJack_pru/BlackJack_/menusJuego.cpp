@@ -1,5 +1,5 @@
 #include "menusJuego.h"
-/**
+
 menusJuego::~menusJuego() {
 
 }
@@ -70,4 +70,3 @@ int menusJuego::menuCartas()
 	return opt;
 
 }
-*/
