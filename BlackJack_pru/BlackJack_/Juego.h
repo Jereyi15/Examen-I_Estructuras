@@ -11,6 +11,7 @@ public:
 	Juego();
 	void jugadoresM();
 	void cartasM();
+	void instruccionesYreglas();
 private:
 	ConjuntoJugadores cjnJugadores;
 	ConjuntoCartas cartas;

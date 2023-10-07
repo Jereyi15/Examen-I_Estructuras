@@ -13,5 +13,6 @@ public:
 	static int jugadores();
 	static void porDefecto();
 	static int menuCartas();
+	static void instrucciones();
 	
 };

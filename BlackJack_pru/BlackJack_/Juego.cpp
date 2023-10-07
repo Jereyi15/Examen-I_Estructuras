@@ -17,6 +17,8 @@ principal:
 
         switch (option) {
         case 1: {
+            instruccionesYreglas();
+            system("pause");
             break;
         }
         case 2:
@@ -146,4 +148,7 @@ void Juego::cartasM()
         system("cls");
     } while (opt2 != 5);
 
+}
+void Juego::instruccionesYreglas() {
+    menusJuego::instrucciones();
 }
