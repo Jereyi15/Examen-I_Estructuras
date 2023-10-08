@@ -7,16 +7,17 @@ Juego::Juego()
 {
 
     int option = 0;
-principal:
+   principal:
     cjnJugadores.agregar(player = new Jugador("Felipe"));
     cjnJugadores.agregar(player = new Jugador("Jeremy"));
     cjnJugadores.agregar(player = new Jugador("Irina"));
     cjnJugadores.agregar(player = new Jugador("Gabriel"));
     cjnJugadores.agregar(player = new Jugador("Pablo"));
+
     cartas.crearBaraja();
-    cout << "Baraja creada con exito." << endl;
+    /*cout << "Baraja creada con exito." << endl;
     system("pause");
-    system("cls");
+    system("cls");*/
 
     do {
         system("cls");

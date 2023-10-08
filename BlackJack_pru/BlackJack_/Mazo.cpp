@@ -8,9 +8,9 @@ Mazo::~Mazo()
 {
 }
 
-void Mazo::agregarCarta(Carta* c)
+void Mazo::agregarCarta(Carta c)
 {
-	//cartasJugador.push(c);
+	cartasJugador.push(c);
 }
 
 void Mazo::sacarCarta()
