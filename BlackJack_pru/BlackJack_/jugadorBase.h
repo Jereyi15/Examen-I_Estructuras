@@ -1,19 +1,22 @@
 #pragma once
 #include "Conjuntocartas.h"
 #include "Mazo.h"
+#include <iostream>
+using namespace std;
+
 class jugadorBase {
 
 public:
 
-	jugadorBase(string);
+	jugadorBase(string, Mazo*);
 	virtual ~jugadorBase();
-	virtual bool hacerApuesta(int) = 0;
-	virtual Carta* solicitarCarta(Mazo*) = 0;//opcion de pedir una carta durante el juego
+
+	virtual void solicitarCard(ConjuntoCartas*) = 0;//opcion de pedir una carta durante el juego
 	virtual bool pasarTurno(jugadorBase*) = 0;//opcion para pasar el turno durante el juego
 	virtual string getNombre() = 0;
-	virtual string toString() = 0;
+	virtual string toString();
 protected:
 	string nombre;
-
+	Mazo* mazo;
 };
 

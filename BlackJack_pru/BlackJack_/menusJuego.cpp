@@ -31,7 +31,7 @@ void menusJuego::agregarJugadores() {
 
 	cout << "------Jugadores-------" << endl << endl;
 	cout << "*Ingrese su nombre* " << endl << endl;
-
+	cout << "*Ingrese su cantidad a apostar* " << endl << endl;
 }
 
 

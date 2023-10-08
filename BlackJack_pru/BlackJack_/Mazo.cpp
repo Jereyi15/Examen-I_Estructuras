@@ -1,4 +1,6 @@
 #include "Mazo.h"
+#include <sstream>
+using std::stringstream;
 
 Mazo::Mazo() 
 {
@@ -19,7 +21,11 @@ void Mazo::sacarCarta()
 
 string Mazo::mostrarCartas()
 {
-	return string();
+	stringstream r;
+
+	r << cartasJugador.top().toString() << endl;
+
+	return r.str();
 }
 
 int Mazo::puntajeTotal()

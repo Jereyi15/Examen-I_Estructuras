@@ -2,7 +2,7 @@
 #include <sstream>
 
 
-Crupier::Crupier(string nombre, int monedas) : jugadorBase(nombre), cantMonedas(monedas)
+Crupier::Crupier(string nombre) : jugadorBase(nombre, new Mazo())
 {
 }
 
@@ -17,7 +17,7 @@ string Crupier::getNombre()
 
 bool Crupier::pasarTurno(jugadorBase* pasa)
 {
-	//Aqui hay que agregar el metodo para que la maquina no se pase de los puntos
+	
 	return true;
 }
 
@@ -30,20 +30,13 @@ string Crupier::toString()
 	return s.str();
 }
 
-Carta Crupier::solicitarCard(ConjuntoCartas cards)
+void Crupier::solicitarCard(ConjuntoCartas* cards)
 {
-	return cards.tomarCarta();
+	Carta carta = cards->tomarCarta();
+	mazo->agregarCarta(carta);
+	cout << "Carta tomada: " << carta.toString() << endl;
 }
 
-bool Crupier::hacerApuesta(int _cant)
-{
-	if (cantMonedas >= _cant) {
-		cantMonedas = cantMonedas - _cant;
-		return true;
-	}
-	else
-		return false;
-}
 
 /*Carta* Crupier::darVuelta()
 {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

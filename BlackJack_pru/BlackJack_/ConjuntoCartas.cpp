@@ -98,6 +98,7 @@ void ConjuntoCartas::barajarCartas() {
         colaCartas.pop();
     }
 }
+
 Carta ConjuntoCartas::tomarCarta() {
     if (!cartas.empty()) {
         //Toma la primera carta de la baraja previamente barajada en la clase juego

@@ -5,15 +5,15 @@ using namespace std;
 class Crupier : public jugadorBase
 {
 public:
-	Crupier(string, int);
+	Crupier(string);
 	virtual ~Crupier();
 	virtual string getNombre();
 	virtual bool pasarTurno(jugadorBase*);
 	virtual string toString();
-	virtual Carta solicitarCard(ConjuntoCartas);
-	virtual bool hacerApuesta(int);
+	virtual void solicitarCard(ConjuntoCartas*);
+
 	//	Carta* darVuelta();
 private:
-	int cantMonedas;
+	
 };
 

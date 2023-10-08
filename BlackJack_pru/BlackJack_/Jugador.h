@@ -1,18 +1,24 @@
 #pragma once
 #include <string>
+#include "jugadorBase.h"
+#include "Mazo.h"
 using namespace std;
 
-class Jugador
+class Jugador : public jugadorBase
 {
 public:
 	Jugador(string);
-	void ganador(int);
-	bool hacerApuesta(int);
-	string getNombre();
-	string toString();
+	virtual ~Jugador();
+	virtual void ganador(int);
+	virtual bool hacerApuesta(int);
+	virtual string getNombre();
+	virtual string toString();
+	virtual void solicitarCard(ConjuntoCartas*);
+	virtual bool pasarTurno(jugadorBase*);
 
 private:
-	string nombre;
-	int cantMonedas;
+	string _nombre;
+	int monedas;
+
 };
 

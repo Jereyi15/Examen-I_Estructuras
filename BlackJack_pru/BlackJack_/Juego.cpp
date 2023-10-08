@@ -5,19 +5,10 @@ menusJuego* menu = new menusJuego();
 
 Juego::Juego()
 {
-
     int option = 0;
-   principal:
-    cjnJugadores.agregar(player = new Jugador("Felipe"));
-    cjnJugadores.agregar(player = new Jugador("Jeremy"));
-    cjnJugadores.agregar(player = new Jugador("Irina"));
-    cjnJugadores.agregar(player = new Jugador("Gabriel"));
-    cjnJugadores.agregar(player = new Jugador("Pablo"));
 
     cartas.crearBaraja();
-    /*cout << "Baraja creada con exito." << endl;
-    system("pause");
-    system("cls");*/
+
 
     do {
         system("cls");
@@ -76,8 +67,9 @@ Juego::Juego()
 
 void Juego::jugadoresM()
 {
-    int opt1 = 0;
+    int opt1 = 0, b=1;
     string nombre;
+    int cantJugadores = 0;
 
     do {
         opt1 = menusJuego::jugadores();
@@ -89,15 +81,22 @@ void Juego::jugadoresM()
 
             menu->agregarJugadores();
 
+            cout << "Cuantos jugadores desea agregar?\n";
+            cin >> cantJugadores;
+            if (cantJugadores + cjnJugadores.cantidadJugadores() <= 7) {
 
-            if (!cjnJugadores.contadorJugadores()) {
-                cout << "Nombre del jugador: ";
-                cin.ignore(); // Limpia el búfer de entrada
-                getline(cin, nombre);
-                cjnJugadores.agregar(player = new Jugador(nombre));
+                for(int i = 0; i < cantJugadores; i++){ 
+                    cout << "Nombre del jugador " << b << ": ";
+                    cin.ignore(); // Limpia el búfer de entrada
+                    getline(cin, nombre);
+                    
+                    cjnJugadores.agregar(new Jugador(nombre));
+                    b++;
+                    cout << "--------------------------------\n";
+                }
             }
             else {
-                cout << "Haz alcanzado el maximo de 7 jugadores para la partida.\n";
+                cout << "El limite de jugadores por partida es 7.\n";
             }
 
             system("pause");
@@ -112,6 +111,7 @@ void Juego::jugadoresM()
         default:
             menusJuego::porDefecto();
             cout << "-----Error: Codigo no valido" << endl << endl;
+            system("pause");
             system("cls");
             break;
 
@@ -149,6 +149,7 @@ void Juego::cartasM()
         default:
             menusJuego::porDefecto();
             cout << "-----Error: Codigo no valido" << endl << endl;
+            system("pause");
             system("cls");
             break;
 

@@ -2,40 +2,57 @@
 #include <sstream>
 using std::stringstream;
 
-Jugador::Jugador(string _nombre) : nombre(_nombre), cantMonedas(500)
+Jugador::Jugador(string _nombre) : jugadorBase(_nombre, new Mazo()), monedas(500)
+{
+}
+
+Jugador::~Jugador()
 {
 }
 
 void Jugador::ganador(int _cant)
 {
-    cantMonedas = cantMonedas + _cant;
+    monedas = monedas + _cant;
 }
 
 bool Jugador::hacerApuesta(int _cant)
 {
-    if (_cant <= 0) {
-        throw std::invalid_argument("La apuesta debe ser mayor que cero.");
+    if (_cant <= 50) {
+        throw invalid_argument("La apuesta debe ser mayor que 50.");
         return false;
     }
-    if (cantMonedas >= _cant) {
-        cantMonedas -= _cant;
+    if (monedas >= _cant) {
+        monedas -= _cant;
         return true;
     }
     else {
-        throw std::invalid_argument("No tienes dinero suficiente para seguir apostando.");
+        throw invalid_argument("No tienes dinero suficiente para seguir apostando.");
         return false;
     }
 }
 
 string Jugador::getNombre()
 {
-    return nombre;
+    return _nombre;
 }
 
 string Jugador::toString()
 {
     stringstream s;
-    s << " Nombre: " << nombre << "\n";
-    s << " Cantidad de monedas dsiponibles: " << cantMonedas << "\n";
+    s << jugadorBase::toString() << "\n";
+    s << " Cantidad de monedas disponibles: " << monedas << "\n";
     return s.str();
+}
+
+void Jugador::solicitarCard(ConjuntoCartas* cards)
+{
+    Carta carta = cards->tomarCarta();
+    mazo->agregarCarta(carta);
+    cout << "Carta tomada: " << carta.toString() << endl;
+
+}
+
+bool Jugador::pasarTurno(jugadorBase*)
+{
+    return false;
 }
