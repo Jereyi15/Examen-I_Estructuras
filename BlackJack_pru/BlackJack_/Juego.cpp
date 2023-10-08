@@ -3,7 +3,7 @@
 Jugador* player;
 menusJuego* menu = new menusJuego();
 
-Juego::Juego()
+Juego::Juego() : crupier(new Crupier("Crupier mesa 1")), apuestaRonda(0)
 {
     int option = 0;
 
@@ -17,49 +17,31 @@ Juego::Juego()
         system("cls");
 
         switch (option) {
-        case 1: {
-            if (cjnJugadores.cantidadJugadores() == 0) {
-                cout << "Antes de comenzar el juego debe crear un jugador!" << endl;
-                system("pause");
+            case 1: {
+                if (cjnJugadores.cantidadJugadores() == 0) {
+                    cout << "Antes de comenzar el juego debe crear un jugador!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    instruccionesYreglas();
+                    system("pause");
+                    system("cls");
+
+                    juego();
+                    system("pause");
+                }
                 break;
             }
-            else {
-                instruccionesYreglas();
-                //Aquí comenzaria el juego
+            case 2:
+                jugadoresM();
+                break;
 
-                system("pause");
-                system("cls");
+            case 3: {
+                cartasM();
+                break;
             }
-            break;
-        }
-        case 2:
-            jugadoresM();
-            break;
 
-        case 3: {
-            cartasM();
-            break;
-        }
-
-              Carta cartaTomada = cartas.tomarCarta();
-              cout << "Tomada: " << cartaTomada.toString();
-
-              system("pause");
-              system("cls");
-
-
-              if (cjnJugadores.recuperar("Pablo") != nullptr) {
-                  player = cjnJugadores.recuperar("Pablo");
-
-                  if (player->hacerApuesta(200)) {
-                      cout << "Se realizo la apuesta \n";
-                  }
-                  else {
-                      cout << "Esta pobre por que no le alcanzo para la apuesta \n";
-                  }
-              }
-              cout << cjnJugadores.toString();
-              system("pause");
         }
     } while (option != 4);
 
@@ -68,7 +50,7 @@ Juego::Juego()
 void Juego::jugadoresM()
 {
     int opt1 = 0, b=1;
-    string nombre;
+    string nombre = " ";
     int cantJugadores = 0;
 
     do {
@@ -79,18 +61,19 @@ void Juego::jugadoresM()
         switch (opt1) {
         case 1:
 
-            menu->agregarJugadores();
-
+           // menu->agregarJugadores();
+           
             cout << "Cuantos jugadores desea agregar?\n";
             cin >> cantJugadores;
             if (cantJugadores + cjnJugadores.cantidadJugadores() <= 7) {
-
+                cin.ignore(); // Limpia el búfer de entrada
                 for(int i = 0; i < cantJugadores; i++){ 
                     cout << "Nombre del jugador " << b << ": ";
-                    cin.ignore(); // Limpia el búfer de entrada
+                    
                     getline(cin, nombre);
                     
                     cjnJugadores.agregar(new Jugador(nombre));
+
                     b++;
                     cout << "--------------------------------\n";
                 }
@@ -158,6 +141,51 @@ void Juego::cartasM()
     } while (opt2 != 4);
 
 }
+
 void Juego::instruccionesYreglas() {
     menusJuego::instrucciones();
+}
+
+void Juego::juego()
+{
+    cout << "--BlackJack--------------\n\n\n";
+    cout << "Crupier: " << crupier->getNombre() << "\n" << "--------------------\n";
+    cout << "Participantes: " << cjnJugadores.toString() << "--------------------\n";
+    cout << "Empezamos el juego, mostrandole a los participantes que la baraja está completa y ordenada.\n\n\n";
+    cartas.ordenarCartas();
+    cout << cartas.toString();
+
+    system("pause");
+    system("cls");
+    
+    cout << "*************************************\n\n";
+    cout << "Ahora, participantes, hagan sus apuestas antes de iniciar la ronda.\n\n";
+    cout << "*************************************\n\n";
+
+    apuestas();
+
+    cout << "*************************************\n\n";
+    cout << "Ahora barajamos y les damos a todos los jugadores 2 cartas.\n\n";
+    cartas.barajarCartas();
+    repartirCartas(cartas);
+    crupier->solicitarCard(&cartas);
+    cout << "*************************************\n\n";
+    cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo()<<endl;
+
+
+
+}
+
+void Juego::repartirCartas(ConjuntoCartas cartas)
+{
+    cjnJugadores.repartirCartas(cartas);
+}
+
+void Juego::opcionesJugador()
+{
+    cjnJugadores.apuestas();
+}
+
+void Juego::apuestas() {
+    apuestaRonda = cjnJugadores.apuestas();
 }

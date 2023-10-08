@@ -17,18 +17,31 @@ void Mazo::agregarCarta(Carta c)
 
 void Mazo::sacarCarta()
 {
+
 }
 
 string Mazo::mostrarCartas()
 {
 	stringstream r;
-
-	r << cartasJugador.top().toString() << endl;
+	stack<Carta> copiaPila = cartasJugador; // Hacemos una copia de la pila
+	
+	while (!copiaPila.empty()) {
+		r << copiaPila.top().toString();
+		copiaPila.pop();
+	}
 
 	return r.str();
 }
 
 int Mazo::puntajeTotal()
 {
-	return 0;
+	int total = 0;
+	stack<Carta> copiaPila = cartasJugador; // Hacemos una copia de la pila
+
+	while (!copiaPila.empty()) {
+		total += stoi(copiaPila.top().getValor());
+		copiaPila.pop();
+	}
+
+	return total;
 }

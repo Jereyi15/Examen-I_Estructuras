@@ -24,9 +24,18 @@ bool Crupier::pasarTurno(jugadorBase* pasa)
 string Crupier::toString()
 {
 	stringstream s;
-	s << "-------------------------------" << endl;
-	s << "Crupier: " << nombre << endl;
-	s << "-------------------------------" << endl;
+	
+	s << "***Crupier: " << jugadorBase::getNombre() << endl;
+	
+	return s.str();
+}
+
+string Crupier::toStringMazo()
+{
+	stringstream s;
+
+	s << "***Crupier: " << jugadorBase::toString() << endl;
+
 	return s.str();
 }
 
@@ -39,6 +48,6 @@ void Crupier::solicitarCard(ConjuntoCartas* cards)
 
 
 /*Carta* Crupier::darVuelta()
-{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+{
 	return nullptr;
 }*/

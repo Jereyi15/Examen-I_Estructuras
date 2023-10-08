@@ -34,13 +34,12 @@ void menusJuego::agregarJugadores() {
 	cout << "*Ingrese su cantidad a apostar* " << endl << endl;
 }
 
-
 int menusJuego::jugadores()
 {
 	int opt = 0;
 
 	cout << "*******************" << endl;
-	cout << "1- Agregar Jugador" << endl;
+	cout << "1- Agregar Jugadores" << endl;
 	cout << "2- Ver jugadores" << endl;
 	cout << "3- Volver" << endl;
 	cout << "*******************" << endl;
@@ -53,7 +52,6 @@ int menusJuego::jugadores()
 void menusJuego::porDefecto()
 {
 	cout << "-----Error: Codigo no valido" << endl << endl;
-	system("cls");
 }
 
 int menusJuego::menuCartas()

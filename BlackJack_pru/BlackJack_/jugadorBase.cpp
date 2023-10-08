@@ -11,12 +11,17 @@ jugadorBase::~jugadorBase()
 
 }
 
+string jugadorBase::getNombre()
+{
+    return nombre;
+}
+
 string jugadorBase::toString()
 {
     stringstream r;
 
-    r << "Nombre: " << nombre << endl;
-    //r << "Mazo: " << mazo->mostrarCartas() << endl;
+    r << nombre << endl;
+    r << "Mazo: " << mazo->mostrarCartas() << endl;
 
     return r.str();
 }
