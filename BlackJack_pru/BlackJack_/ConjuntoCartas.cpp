@@ -52,6 +52,7 @@ void ConjuntoCartas::ordenarCartas() {
         return valores.find(a.getValor()) < valores.find(b.getValor());
         });
 }
+
 /* Referencia del método barajarCartas():
 Techie Delight. (2023). Shuffle an array using Fisher–Yates shuffle algorithm.
 Recuoperado el 6 de octubre de 2023 de https://www.techiedelight.com/shuffle-given-array-elements-fisher-yates-shuffle/
@@ -105,6 +106,9 @@ Carta ConjuntoCartas::tomarCarta() {
         Carta cartaTomada = cartas.front();
         cartas.pop_front();
         return cartaTomada;
+    }
+    else {
+        throw out_of_range("No hay cartas disponibles para tomar.");
     }
 }
 string ConjuntoCartas::toString()

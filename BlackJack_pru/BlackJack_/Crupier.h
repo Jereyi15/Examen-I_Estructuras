@@ -10,6 +10,7 @@ public:
 	virtual string getNombre();
 	virtual bool pasarTurno(jugadorBase*);
 	virtual string toString();
+	virtual string toStringMazo();
 	virtual void solicitarCard(ConjuntoCartas*);
 
 	//	Carta* darVuelta();

@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include "Carta.h"
+
 class ConjuntoCartas
 {
 public:

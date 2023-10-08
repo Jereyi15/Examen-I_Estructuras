@@ -13,6 +13,7 @@ public:
 	virtual bool hacerApuesta(int);
 	virtual string getNombre();
 	virtual string toString();
+	virtual string toStringMazo();
 	virtual void solicitarCard(ConjuntoCartas*);
 	virtual bool pasarTurno(jugadorBase*);
 
