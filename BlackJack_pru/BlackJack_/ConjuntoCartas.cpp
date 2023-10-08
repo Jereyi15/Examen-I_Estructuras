@@ -106,6 +106,9 @@ Carta ConjuntoCartas::tomarCarta() {
         cartas.pop_front();
         return cartaTomada;
     }
+    else {
+        throw std::out_of_range("No hay cartas disponibles para tomar.");
+    }
 }
 string ConjuntoCartas::toString()
 {
