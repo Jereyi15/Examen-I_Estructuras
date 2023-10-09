@@ -19,7 +19,7 @@ public:
 	
 	void apuestas();
 	void iniciarAJugar(); 
-	string verificarGanadores();
+	void verificarGanadores();
 
 
 	void resetJugadores();

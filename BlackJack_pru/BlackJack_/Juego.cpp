@@ -178,7 +178,7 @@ void Juego::juego()
     crupier->solicitarCard(&cartas);
     iniciarAJugar();
     juegaCasa();
-    cout << verificarGanadores();
+    verificarGanadores();
     resetJugadores();
 
 }
@@ -253,25 +253,22 @@ void Juego::iniciarAJugar()
     }
 }
 
-string Juego::verificarGanadores()
+void Juego::verificarGanadores()
 {
-    stringstream s;
     list<Jugador> jugadores = *cjnJugadores.getJugadores();
     list<Jugador>::iterator it = cjnJugadores.getIterator();
     system("cls");
     cout << "           *************************************\n\n";
     cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo() << endl;
     cout << "           *************************************\n\n";
-    s << "           *************************************\n\n";
-    s << "Ganadores: " << endl;
+    cout << "Ganadores: " << endl;
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
         if (!derrota(&*it)) {
             it->ganador(it->getCanApuesta() * 2);
-            s << it->toString() << "\n";
+            cout << it->toString() << "\n";
         }
     }
-    s << "           *************************************\n\n";
-    return s.str();
+    cout << "           *************************************\n\n";
 }
 
 void Juego::resetJugadores()
@@ -296,17 +293,21 @@ bool Juego::derrota(Jugador* sePasa)//nuevo
 void Juego::juegaCasa()
 {
     bool bandera = true;
-    int ganandoACrupier = 0;
-    int cantidadJugadores = 0;
+    int cantidadPerdiendoCasa = 0;
+    int cantidadApuestas = 0;
     list<Jugador> jugadores = *cjnJugadores.getJugadores();
     list<Jugador>::iterator it = cjnJugadores.getIterator();
     do
     {
         for (it = jugadores.begin(); it != jugadores.end(); it++) {
-            cantidadJugadores++;
-            if (!derrota(&*it)) ganandoACrupier++;
+            cantidadApuestas += it->getCanApuesta();
+            if (!derrota(&*it)) cantidadPerdiendoCasa += it->getCanApuesta();
         }
-        if ((cantidadJugadores / 2) < ganandoACrupier) crupier->solicitarCard(&cartas);
+        if ((cantidadApuestas / 2) <= cantidadPerdiendoCasa) {
+            crupier->solicitarCard(&cartas);
+            cantidadApuestas = 0;
+            cantidadPerdiendoCasa = 0;
+        }
         else bandera = false;
     } while (bandera);
 }
