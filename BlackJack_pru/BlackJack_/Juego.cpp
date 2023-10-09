@@ -90,7 +90,9 @@ void Juego::jugadoresM()
             cout << cjnJugadores.toString() << endl;
             system("pause");
             break;
-
+        case 3:
+            //Salir del menu de jugadores
+            break;
         default:
             menusJuego::porDefecto();
             cout << "-----Error: Codigo no valido" << endl << endl;
@@ -129,6 +131,9 @@ void Juego::cartasM()
             cout << "Baraja ordenada con exito." << endl;
             system("pause");
             break;
+        case 4: 
+            //Salir del menu de cartas
+            break;
         default:
             menusJuego::porDefecto();
             cout << "-----Error: Codigo no valido" << endl << endl;
@@ -148,28 +153,28 @@ void Juego::instruccionesYreglas() {
 
 void Juego::juego()
 {
-    cout << "--BlackJack--------------\n\n\n";
-    cout << "Crupier: " << crupier->getNombre() << "\n" << "--------------------\n";
-    cout << "Participantes: " << cjnJugadores.toString() << "--------------------\n";
-    cout << "Empezamos el juego, mostrandole a los participantes que la baraja está completa y ordenada.\n\n\n";
+    cout << " --------------BlackJack-------------- \n\n";
+    cout << " Crupier: " << crupier->getNombre() << "\n" << "--------------------\n";
+    cout << " Participantes: " << cjnJugadores.toString() << "--------------------\n";
+    cout << " Empezamos el juego, mostrandole a los participantes que la baraja esta completa y ordenada.\n\n\n";
     cartas.ordenarCartas();
     cout << cartas.toString();
 
     system("pause");
     system("cls");
     
-    cout << "*************************************\n\n";
+    cout << "             *************************************\n\n";
     cout << "Ahora, participantes, hagan sus apuestas antes de iniciar la ronda.\n\n";
-    cout << "*************************************\n\n";
+    cout << "             *************************************\n\n";
 
     apuestas();
 
-    cout << "*************************************\n\n";
+    cout << "           *************************************\n\n";
     cout << "Ahora barajamos y les damos a todos los jugadores 2 cartas.\n\n";
     cartas.barajarCartas();
     repartirCartas(cartas);
     crupier->solicitarCard(&cartas);
-    cout << "*************************************\n\n";
+    cout << "           *************************************\n\n";
     cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo()<<endl;
 
 
