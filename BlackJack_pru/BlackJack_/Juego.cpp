@@ -209,11 +209,11 @@ void Juego::apuestas() {
 
         cout << "Jugador: " << it->toString() << endl;
         cout << "Desea realizar apuesta para esta ronda? 1. Si / 2. No: ";
-        cin >> opc;
+        opc = Utiles::validarEntero();
 
         if (opc == 1) {
             cout << "Cuanto desea apostar? ";
-            cin >> apuesta;
+            apuesta = Utiles::validarDecimal();
             if (apuesta >= 50) {
                 if (!it->hacerApuesta(apuesta)) {
                     cout << "\n Apuesta no valida, no cuenta con fondos suficientes \n";
