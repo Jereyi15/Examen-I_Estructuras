@@ -53,15 +53,15 @@ void ConjuntoCartas::ordenarCartas() {
         });
 }
 
-/* Referencia del método barajarCartas():
-Techie Delight. (2023). Shuffle an array using Fisher–Yates shuffle algorithm.
+/* Referencia del mï¿½todo barajarCartas():
+Techie Delight. (2023). Shuffle an array using Fisherï¿½Yates shuffle algorithm.
 Recuoperado el 6 de octubre de 2023 de https://www.techiedelight.com/shuffle-given-array-elements-fisher-yates-shuffle/
 */
 void ConjuntoCartas::barajarCartas() {
     int n = cartas.size();
     queue<Carta> colaCartas;
 
-    // Si la lista no está vacía, se mete todo lo que tiene la cola
+    // Si la lista no estï¿½ vacï¿½a, se mete todo lo que tiene la cola
     while (!cartas.empty()) {
         colaCartas.push(cartas.front());
         cartas.pop_front();
@@ -73,17 +73,17 @@ void ConjuntoCartas::barajarCartas() {
     vector<Carta> cartasBarajadas;
 
     for (int indiceCarta = n; indiceCarta > 0; indiceCarta--) {
-        // Genera un índice aleatorio entre 0 e indiceCarta -1
+        // Genera un ï¿½ndice aleatorio entre 0 e indiceCarta -1
         int indiceAleatorio = rand() % indiceCarta;
 
-        // Mueve las cartas de la cola hasta el índice aleatorio
+        // Mueve las cartas de la cola hasta el ï¿½ndice aleatorio
         for (int i = 0; i < indiceAleatorio; i++) {
             Carta carta = colaCartas.front();
             colaCartas.pop();
             colaCartas.push(carta);
         }
 
-        // Agrega la carta en el índice aleatorio al vector de cartas barajadas
+        // Agrega la carta en el ï¿½ndice aleatorio al vector de cartas barajadas
         cartasBarajadas.push_back(colaCartas.front());
         colaCartas.pop();
     }
