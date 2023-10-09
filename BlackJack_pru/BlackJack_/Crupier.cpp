@@ -57,11 +57,12 @@ void Crupier::resetCards()
 }
 
 
-bool Crupier::mas21(jugadorBase* mano)//metodo que evalua si se pasa de 21 puntos
+bool Crupier::mas21(Jugador* mano)//metodo que evalua si se pasa de 21 puntos
 {
-	if (mano->getCartasP()->puntajeTotal() > 21) {
-		return true;
+	if (mano->getCartasP()->puntajeTotal() < 22 && mano->getCartasP()->puntajeTotal() > mazo->puntajeTotal()) {
+		return false;
 	}
-	return false;
+	else
+		return false;
 }
 

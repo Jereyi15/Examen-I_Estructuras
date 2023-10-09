@@ -1,5 +1,6 @@
 #pragma once
 #include "jugadorBase.h"
+#include "Jugador.h"
 using namespace std;
 
 class Crupier : public jugadorBase
@@ -12,7 +13,7 @@ public:
 	virtual string toString();
 	virtual string toStringMazo();
 	virtual void solicitarCard(ConjuntoCartas*);
-	virtual bool mas21(jugadorBase*);//nuevo
+	virtual bool mas21(Jugador*);//nuevo
 	virtual Mazo* getCartasP();//nuevo
 	virtual void resetCards();
 

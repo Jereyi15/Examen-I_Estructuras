@@ -8,6 +8,7 @@ public:
 	Carta(string, char, char);
 	virtual ~Carta();
 	string getValor();
+	int obtenerValor();
 	char getPalo();
 	char getColor();
 

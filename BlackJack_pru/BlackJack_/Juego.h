@@ -23,7 +23,7 @@ public:
 
 	void resetJugadores();
 
-	bool derrota(jugadorBase*);//nuevo
+	bool derrota(Jugador*);//nuevo
 
 
 private:

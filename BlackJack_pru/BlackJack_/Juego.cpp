@@ -249,7 +249,7 @@ void Juego::iniciarAJugar()
             } while (opc != 2);
         }
     }
-    verificarGanadores();
+    cout << verificarGanadores();
     system("pause");
     resetJugadores();
 }
@@ -263,9 +263,9 @@ string Juego::verificarGanadores()
     s << "           *************************************\n\n";
     s << "Ganadores: " << endl;
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
-        if (derrota(&*it)) {
+        if (!derrota(&*it)) {
             s << it->toString() << "\n";
-            it->ganador((it->getCanApuesta()) * 2);
+            it->ganador(it->getCanApuesta()*2);
         }
     }
     s << "           *************************************\n\n";
@@ -284,7 +284,7 @@ void Juego::resetJugadores()
     crupier->resetCards();
 }
 
-bool Juego::derrota(jugadorBase* sePasa)//nuevo
+bool Juego::derrota(Jugador* sePasa)//nuevo
 {
     if (crupier->mas21(sePasa) == true ) {
         return true;
