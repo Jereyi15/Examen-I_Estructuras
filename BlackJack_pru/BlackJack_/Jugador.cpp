@@ -17,7 +17,7 @@ void Jugador::ganador(int _cant)
 
 bool Jugador::hacerApuesta(int _cant)
 { //quit� el invalid_argument porque me tiraba error al compilar
-    if (_cant <= 50) {
+    if (_cant < 50) {
         throw "La apuesta debe ser mayor que 50.";
         return false;
     }
