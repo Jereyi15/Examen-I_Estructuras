@@ -2,7 +2,7 @@
 #include <sstream>
 using std::stringstream;
 
-Jugador::Jugador(string _nombre) : jugadorBase(_nombre, new Mazo()), monedas(500)
+Jugador::Jugador(string _nombre) : jugadorBase(_nombre, new Mazo()), monedas(500), canApuesta(0)
 {
 }
 
@@ -17,17 +17,12 @@ void Jugador::ganador(int _cant)
 
 bool Jugador::hacerApuesta(int _cant)
 { //quit� el invalid_argument porque me tiraba error al compilar
-    if (_cant < 50) {
-        throw "La apuesta debe ser mayor que 50.";
-        return false;
-    }
     if (monedas >= _cant) {
         monedas -= _cant;
         canApuesta = _cant;
         return true;
     }
     else {
-        throw "No tienes dinero suficiente para seguir apostando.";
         return false;
     }
 }
@@ -66,6 +61,21 @@ void Jugador::solicitarCard(ConjuntoCartas* cards)
 bool Jugador::pasarTurno(jugadorBase*)
 {
     return false;
+}
+
+int Jugador::getCanApuesta()
+{
+    return canApuesta;
+}
+
+void Jugador::resetCanApuesta()
+{
+    canApuesta = 0;
+}
+
+void Jugador::resetCards()
+{
+    jugadorBase::resetCards();
 }
 
 Mazo* Jugador::getCartasP()

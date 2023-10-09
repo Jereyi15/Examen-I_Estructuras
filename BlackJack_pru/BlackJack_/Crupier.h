@@ -14,6 +14,7 @@ public:
 	virtual void solicitarCard(ConjuntoCartas*);
 	virtual bool mas21(jugadorBase*);//nuevo
 	virtual Mazo* getCartasP();//nuevo
+	virtual void resetCards();
 
 private:
 	

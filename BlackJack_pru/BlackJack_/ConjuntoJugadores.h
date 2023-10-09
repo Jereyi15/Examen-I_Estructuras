@@ -18,7 +18,6 @@ public:
 	list<Jugador>* getJugadores();
 
 	void repartirCartas(ConjuntoCartas);
-	int apuestas();
 	
 
 

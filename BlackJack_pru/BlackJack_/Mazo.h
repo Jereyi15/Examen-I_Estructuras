@@ -8,7 +8,7 @@ public:
 	Mazo();
 	~Mazo();
 	void agregarCarta(Carta); //Agrega una carta al mazo del jugador
-	void sacarCarta(); //Saca una carta de la baraja
+	void sacarCartas(); //Saca todas las cartas
 	string mostrarCartas();
 	int puntajeTotal();
 

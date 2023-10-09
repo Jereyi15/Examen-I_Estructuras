@@ -77,42 +77,12 @@ list<Jugador>* ConjuntoJugadores::getJugadores()
 void ConjuntoJugadores::repartirCartas(ConjuntoCartas cartas)
 {
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
-        it->solicitarCard(&cartas);
-        it->solicitarCard(&cartas);
+        if (it->getCanApuesta() != 0) {
+            it->solicitarCard(&cartas);
+            it->solicitarCard(&cartas);
+        }
     }
 }
 
-int ConjuntoJugadores::apuestas() {
-    int total = 0;
-    int opc = 0;
-    int apuesta = 0;
-
-    for (it = jugadores.begin(); it != jugadores.end(); it++) {
-        cout << "--------------------------\n";
-        cout << "APUESTAS A PARTIR DE 50 DOLARES.\n";
-        cout << "--------------------------\n\n";
-
-        cout << "Jugador: " << it->toString() << endl;
-        cout << "Desea realizar apuesta para esta ronda? 1. Si / 2. No: ";
-        cin >> opc;
-
-        if (opc == 1) {
-            cout << "Cuanto desea apostar? ";
-            cin >> apuesta;
-                it->hacerApuesta(apuesta);
-        } 
-        else if (opc == 2) {
-            it->refrescarMazo();
-        }
-        else {
-            throw "Opcion invalida";
-        }
-        total += apuesta;
-        system("cls");
-    }
-    return total;
-    //hice que se retornara el total para poder tener el total de todas las apuestas en
-    //el jeugo para la hora de pagar
-}
 
 

@@ -17,7 +17,7 @@ public:
 	virtual Mazo* getCartasP() = 0;//nuevo
 	virtual string getNombre();//nuevo
 	virtual string toString();
-	virtual void refrescarMazo(); // quita las cartas que anteriormente tenia
+	virtual void resetCards(); // quita las cartas que anteriormente tenia
 protected:
 	string nombre;
 	Mazo* mazo;

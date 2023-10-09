@@ -15,9 +15,11 @@ void Mazo::agregarCarta(Carta c)
 	cartasJugador.push(c);
 }
 
-void Mazo::sacarCarta()
+void Mazo::sacarCartas()
 {
-
+	while (!cartasJugador.empty()) {
+		cartasJugador.pop();
+	}
 }
 
 string Mazo::mostrarCartas()

@@ -155,7 +155,7 @@ void Juego::juego()
 {
     cout << " --------------BlackJack-------------- \n\n";
     cout << " Crupier: " << crupier->getNombre() << "\n" << "--------------------\n";
-    cout << " Participantes: " << cjnJugadores.toString() << "--------------------\n";
+    cout << " Participantes: \n" << cjnJugadores.toString() << "--------------------\n";
     cout << " Empezamos el juego, mostrandole a los participantes que la baraja esta completa y ordenada.\n\n\n";
     cartas.ordenarCartas();
     cout << cartas.toString();
@@ -174,8 +174,6 @@ void Juego::juego()
     cartas.barajarCartas();
     repartirCartas(cartas);
     crupier->solicitarCard(&cartas);
-    cout << "           *************************************\n\n";
-    cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo()<<endl;
     iniciarAJugar();
 
 
@@ -188,21 +186,79 @@ void Juego::repartirCartas(ConjuntoCartas cartas)
 
 void Juego::opcionesJugador()
 {
-    cjnJugadores.apuestas();
-  
+    apuestas();
 }
 
 void Juego::apuestas() {
-    apuestaRonda = cjnJugadores.apuestas();
+    list<Jugador> *jugadores = cjnJugadores.getJugadores();
+    list<Jugador>::iterator it = cjnJugadores.getIterator();
+    int opc = 0;
+    int apuesta = 0;
+
+    for (it = jugadores->begin(); it != jugadores->end(); it++) {
+        cout << "--------------------------\n";
+        cout << "APUESTAS A PARTIR DE 50 MONEDAS.\n";
+        cout << "--------------------------\n\n";
+
+        cout << "Jugador: " << it->toString() << endl;
+        cout << "Desea realizar apuesta para esta ronda? 1. Si / 2. No: ";
+        cin >> opc;
+
+        if (opc == 1) {
+            cout << "Cuanto desea apostar? ";
+            cin >> apuesta;
+            if (apuesta >= 50) {
+                if (!it->hacerApuesta(apuesta)) {
+                    cout << "\n Apuesta no valida, no cuenta con fondos suficientes \n";
+                }
+            }
+            else {
+                cout << "\n Apuesta no valida, debe ser mayor a 50 monedas \n";
+            }
+        }
+        else if (opc == 2) {
+            it->resetCards();
+        }
+        else {
+            throw "Opcion invalida";
+        }
+        system("pause");
+        system("cls");
+    }
 }
 void Juego::iniciarAJugar()
 {
     list<Jugador> jugadores = *cjnJugadores.getJugadores();
     list<Jugador>::iterator it = cjnJugadores.getIterator();
+    int opc;
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
-        
-
+        if (it->getCanApuesta() != 0) {
+            do {
+                system("cls");
+                cout << "           *************************************\n\n";
+                cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo() << endl;
+                cout << "Jugador: " << it->toString() << endl;
+                cout << "Desea pedir otra carta? 1. Si / 2. No: ";
+                cin >> opc;
+                if (opc == 1) {
+                    it->solicitarCard(&cartas);
+                }
+            } while (opc != 2);
+        }
     }
+    resetJugadores();
+}
+
+void Juego::resetJugadores()
+{
+    list<Jugador> jugadores = *cjnJugadores.getJugadores();
+    list<Jugador>::iterator it = cjnJugadores.getIterator();
+    int opc;
+    for (it = jugadores.begin(); it != jugadores.end(); it++) {
+        it->resetCanApuesta();
+        it->resetCards();
+    }
+    crupier->resetCards();
 }
 
 bool Juego::derrota(jugadorBase* sePasa)//nuevo

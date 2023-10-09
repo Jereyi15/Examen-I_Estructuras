@@ -51,6 +51,11 @@ Mazo* Crupier::getCartasP()
 	return mazo;
 }
 
+void Crupier::resetCards()
+{
+	jugadorBase::resetCards();
+}
+
 
 bool Crupier::mas21(jugadorBase* mano)//metodo que evalua si se pasa de 21 puntos
 {

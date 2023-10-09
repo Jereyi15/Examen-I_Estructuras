@@ -26,7 +26,7 @@ string jugadorBase::toString()
     return r.str();
 }
 
-void jugadorBase::refrescarMazo()
+void jugadorBase::resetCards()
 {
-    mazo = new Mazo();
+    mazo->sacarCartas();
 }
