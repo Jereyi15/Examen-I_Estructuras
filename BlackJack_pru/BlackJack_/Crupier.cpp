@@ -46,8 +46,17 @@ void Crupier::solicitarCard(ConjuntoCartas* cards)
 	cout << "Carta tomada: " << carta.toString() << endl;
 }
 
-
-/*Carta* Crupier::darVuelta()
+Mazo* Crupier::getCartasP()
 {
-	return nullptr;
-}*/
+	return mazo;
+}
+
+
+bool Crupier::mas21(jugadorBase* mano)//metodo que evalua si se pasa de 21 puntos
+{
+	if (mano->getCartasP()->puntajeTotal() > 21) {
+		return true;
+	}
+	return false;
+}
+

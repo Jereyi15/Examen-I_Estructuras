@@ -16,7 +16,7 @@ void Jugador::ganador(int _cant)
 }
 
 bool Jugador::hacerApuesta(int _cant)
-{ //quité el invalid_argument porque me tiraba error al compilar
+{ //quitï¿½ el invalid_argument porque me tiraba error al compilar
     if (_cant <= 50) {
         throw "La apuesta debe ser mayor que 50.";
         return false;
@@ -44,8 +44,8 @@ string Jugador::toString()
     s << " Cantidad de monedas disponibles: " << monedas << "\n";
     return s.str();
 }
-//son 2 toString porque a la hora de enseñar los jugadores cuando no tienen mazos, da un error
-//asi que uno es para usarlo en el juego como tal y el otro en la opcion de enseñar jugadores
+//son 2 toString porque a la hora de enseï¿½ar los jugadores cuando no tienen mazos, da un error
+//asi que uno es para usarlo en el juego como tal y el otro en la opcion de enseï¿½ar jugadores
 string Jugador::toStringMazo() {
 
     stringstream s;
@@ -68,7 +68,15 @@ bool Jugador::pasarTurno(jugadorBase*)
     return false;
 }
 
-void Jugador::refrescarMazo()
+Mazo* Jugador::getCartasP()
 {
-    jugadorBase::refrescarMazo();
+    return mazo;
+}
+
+bool Jugador::mas21(jugadorBase* mano)//metodo que evalua si se pasa de 21 puntos
+{
+    if (mano->getCartasP()->puntajeTotal() > 21) {
+        return true;
+    }
+    return false;
 }

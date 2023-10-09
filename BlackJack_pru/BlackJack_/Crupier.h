@@ -12,8 +12,9 @@ public:
 	virtual string toString();
 	virtual string toStringMazo();
 	virtual void solicitarCard(ConjuntoCartas*);
+	virtual bool mas21(jugadorBase*);//nuevo
+	virtual Mazo* getCartasP();//nuevo
 
-	//	Carta* darVuelta();
 private:
 	
 };

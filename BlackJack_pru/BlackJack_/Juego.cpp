@@ -66,7 +66,7 @@ void Juego::jugadoresM()
             cout << "Cuantos jugadores desea agregar?\n";
             cin >> cantJugadores;
             if (cantJugadores + cjnJugadores.cantidadJugadores() <= 7) {
-                cin.ignore(); // Limpia el búfer de entrada
+                cin.ignore(); // Limpia el bï¿½fer de entrada
                 for(int i = 0; i < cantJugadores; i++){ 
                     cout << "Nombre del jugador " << b << ": ";
                     
@@ -198,14 +198,10 @@ void Juego::apuestas() {
 /*void Juego::iniciarJuego()
 {
 
-    int opc;
-    for (it = jugadores.begin(); it != jugadores.end(); it++) {
-        cout << "Jugador: " << it->toString() << endl;
-        do {
-            cout << "Desea pedir una carta? 1. Si / 2. No: ";
-            cin >> opc;
-            it->solicitarCard();
-        } while (opc != 2);
-
+bool Juego::derrota(jugadorBase* sePasa)//nuevo
+{
+    if (sePasa->mas21(sePasa) == true ) {
+        return true;
     }
-}*/
+    return false;
+}

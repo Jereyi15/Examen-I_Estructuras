@@ -17,7 +17,11 @@ public:
 	void repartirCartas(ConjuntoCartas);
 	void opcionesJugador();
 	void apuestas();
+<<<<<<< Updated upstream
 	void iniciarJuego();
+=======
+	bool derrota(jugadorBase*);//nuevo
+>>>>>>> Stashed changes
 
 private:
 	ConjuntoJugadores cjnJugadores;

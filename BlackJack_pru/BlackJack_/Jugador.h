@@ -16,8 +16,8 @@ public:
 	virtual string toStringMazo();
 	virtual void solicitarCard(ConjuntoCartas*);
 	virtual bool pasarTurno(jugadorBase*);
-	virtual void refrescarMazo();
-	int getCanApuesta();
+	virtual Mazo* getCartasP();//nuevo
+	virtual bool mas21(jugadorBase*);//nuevo
 
 private:
 	string _nombre;
