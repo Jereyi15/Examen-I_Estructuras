@@ -21,10 +21,11 @@ public:
 	void iniciarAJugar(); 
 	string verificarGanadores();
 
-	void resetJugadores();
 
+	void resetJugadores();
 	bool derrota(Jugador*);//nuevo
 
+	void juegaCasa();
 
 private:
 	ConjuntoJugadores cjnJugadores;

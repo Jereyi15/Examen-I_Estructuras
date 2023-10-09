@@ -177,7 +177,9 @@ void Juego::juego()
     repartirCartas(cartas);
     crupier->solicitarCard(&cartas);
     iniciarAJugar();
-
+    juegaCasa();
+    cout << verificarGanadores();
+    resetJugadores();
 
 }
 
@@ -249,8 +251,6 @@ void Juego::iniciarAJugar()
             } while (opc != 2);
         }
     }
-    cout << verificarGanadores();
-    resetJugadores();
 }
 
 string Juego::verificarGanadores()
@@ -259,6 +259,9 @@ string Juego::verificarGanadores()
     list<Jugador> jugadores = *cjnJugadores.getJugadores();
     list<Jugador>::iterator it = cjnJugadores.getIterator();
     system("cls");
+    cout << "           *************************************\n\n";
+    cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo() << endl;
+    cout << "           *************************************\n\n";
     s << "           *************************************\n\n";
     s << "Ganadores: " << endl;
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
@@ -275,7 +278,6 @@ void Juego::resetJugadores()
 {
     list<Jugador> jugadores = *cjnJugadores.getJugadores();
     list<Jugador>::iterator it = cjnJugadores.getIterator();
-    int opc;
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
         it->resetCanApuesta();
         it->resetCards();
@@ -289,4 +291,22 @@ bool Juego::derrota(Jugador* sePasa)//nuevo
         return true;
     }
     return false;
+}
+
+void Juego::juegaCasa()
+{
+    bool bandera = true;
+    int ganandoACrupier = 0;
+    int cantidadJugadores = 0;
+    list<Jugador> jugadores = *cjnJugadores.getJugadores();
+    list<Jugador>::iterator it = cjnJugadores.getIterator();
+    do
+    {
+        for (it = jugadores.begin(); it != jugadores.end(); it++) {
+            cantidadJugadores++;
+            if (!derrota(&*it)) ganandoACrupier++;
+        }
+        if ((cantidadJugadores / 2) < ganandoACrupier) crupier->solicitarCard(&cartas);
+        else bandera = false;
+    } while (bandera);
 }
