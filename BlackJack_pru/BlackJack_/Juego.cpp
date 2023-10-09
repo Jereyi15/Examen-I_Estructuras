@@ -72,9 +72,8 @@ void Juego::jugadoresM()
            // menu->agregarJugadores();
            
             cout << "Cuantos jugadores desea agregar?\n";
-            cin >> cantJugadores;
+            cantJugadores = Utiles::validarEntero();
             if (cantJugadores + cjnJugadores.cantidadJugadores() <= 7) {
-                cin.ignore(); // Limpia el b�fer de entrada
                 for(int i = 0; i < cantJugadores; i++){ 
                     cout << "Nombre del jugador " << b << ": ";
                     

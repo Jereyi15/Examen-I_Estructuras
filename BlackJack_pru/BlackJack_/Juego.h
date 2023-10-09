@@ -3,6 +3,7 @@
 #include "ConjuntoCartas.h"
 #include "menusJuego.h"
 #include "Crupier.h"
+#include "Utiles.h"
 #include <iostream>
 using namespace std;
 

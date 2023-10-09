@@ -1,4 +1,5 @@
 #include "menusJuego.h"
+#include "Utiles.h"
 
 menusJuego::~menusJuego() {
 
@@ -20,7 +21,7 @@ int menusJuego::mainMenu() {
 	cout << "3- Cartas" << endl;
 	cout << "4- Salir" << endl;
 	cout << "*******************" << endl;
-	cin >> opt;
+	opt = Utiles::validarEntero();
 
 	system("cls");
 	return opt;
@@ -43,7 +44,7 @@ int menusJuego::jugadores()
 	cout << "2- Ver jugadores" << endl;
 	cout << "3- Volver" << endl;
 	cout << "*******************" << endl;
-	cin >> opt;
+	opt = Utiles::validarEntero();
 
 	system("cls");
 	return opt;
@@ -64,7 +65,7 @@ int menusJuego::menuCartas()
 	cout << "3- Ordenar" << endl;
 	cout << "4- Salir" << endl;
 	cout << "*******************" << endl;
-	cin >> opt;
+	opt = Utiles::validarEntero();
 
 	system("cls");
 	return opt;
