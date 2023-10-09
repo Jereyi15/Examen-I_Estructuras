@@ -16,10 +16,13 @@ public:
 	virtual string toStringMazo();
 	virtual void solicitarCard(ConjuntoCartas*);
 	virtual bool pasarTurno(jugadorBase*);
+	virtual void refrescarMazo();
+	int getCanApuesta();
 
 private:
 	string _nombre;
 	int monedas;
+	int canApuesta; //por si gana conocer la cantidad exacta que aposto
 
 };
 

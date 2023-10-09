@@ -25,3 +25,8 @@ string jugadorBase::toString()
 
     return r.str();
 }
+
+void jugadorBase::refrescarMazo()
+{
+    mazo = new Mazo();
+}

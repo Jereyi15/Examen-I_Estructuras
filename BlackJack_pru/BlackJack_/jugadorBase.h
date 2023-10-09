@@ -15,6 +15,7 @@ public:
 	virtual bool pasarTurno(jugadorBase*) = 0;//opcion para pasar el turno durante el juego
 	virtual string getNombre();
 	virtual string toString();
+	virtual void refrescarMazo(); // quita las cartas que anteriormente tenia
 protected:
 	string nombre;
 	Mazo* mazo;

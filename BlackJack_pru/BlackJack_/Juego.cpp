@@ -184,8 +184,23 @@ void Juego::repartirCartas(ConjuntoCartas cartas)
 void Juego::opcionesJugador()
 {
     cjnJugadores.apuestas();
+  
 }
 
 void Juego::apuestas() {
     apuestaRonda = cjnJugadores.apuestas();
 }
+/*void Juego::iniciarJuego()
+{
+
+    int opc;
+    for (it = jugadores.begin(); it != jugadores.end(); it++) {
+        cout << "Jugador: " << it->toString() << endl;
+        do {
+            cout << "Desea pedir una carta? 1. Si / 2. No: ";
+            cin >> opc;
+            it->solicitarCard();
+        } while (opc != 2);
+
+    }
+}*/

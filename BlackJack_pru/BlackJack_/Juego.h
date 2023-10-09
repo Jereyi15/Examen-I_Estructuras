@@ -17,6 +17,7 @@ public:
 	void repartirCartas(ConjuntoCartas);
 	void opcionesJugador();
 	void apuestas();
+	void iniciarJuego();
 
 private:
 	ConjuntoJugadores cjnJugadores;

@@ -14,9 +14,12 @@ public:
 	string toStringMazo();
 	bool contadorJugadores(); //Verifica que se haya alcanzado el limite de jugadores permitidos
 	int cantidadJugadores();
+	list<Jugador>::iterator getIterator();
 
 	void repartirCartas(ConjuntoCartas);
 	int apuestas();
+	
+
 
 private:
 	list<Jugador> jugadores;

@@ -23,6 +23,7 @@ bool Jugador::hacerApuesta(int _cant)
     }
     if (monedas >= _cant) {
         monedas -= _cant;
+        canApuesta = _cant;
         return true;
     }
     else {
@@ -65,4 +66,9 @@ void Jugador::solicitarCard(ConjuntoCartas* cards)
 bool Jugador::pasarTurno(jugadorBase*)
 {
     return false;
+}
+
+void Jugador::refrescarMazo()
+{
+    jugadorBase::refrescarMazo();
 }

@@ -64,6 +64,11 @@ int ConjuntoJugadores::cantidadJugadores() {
     return jugadores.size();
 }
 
+list<Jugador>::iterator ConjuntoJugadores::getIterator()
+{
+    return it;
+}
+
 void ConjuntoJugadores::repartirCartas(ConjuntoCartas cartas)
 {
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
@@ -83,17 +88,16 @@ int ConjuntoJugadores::apuestas() {
         cout << "--------------------------\n\n";
 
         cout << "Jugador: " << it->toString() << endl;
-        cout << "Desea realizar apuesta para esta ronda? 1. Si / 2. No";
+        cout << "Desea realizar apuesta para esta ronda? 1. Si / 2. No: ";
         cin >> opc;
 
         if (opc == 1) {
             cout << "Cuanto desea apostar? ";
             cin >> apuesta;
-            it->hacerApuesta(apuesta);
-        } //ese hacerApuesta, no lo hice y la verdad no lo entendí muy bien pido perdon
+                it->hacerApuesta(apuesta);
+        } 
         else if (opc == 2) {
-            //aqui hacer que pase de personaje y quitar al que no apuesta de la ronda
-            //quitarle las cartas tambien
+            it->refrescarMazo();
         }
         else {
             throw "Opcion invalida";
@@ -105,3 +109,5 @@ int ConjuntoJugadores::apuestas() {
     //hice que se retornara el total para poder tener el total de todas las apuestas en
     //el jeugo para la hora de pagar
 }
+
+
