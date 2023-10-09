@@ -69,6 +69,11 @@ list<Jugador>::iterator ConjuntoJugadores::getIterator()
     return it;
 }
 
+list<Jugador>* ConjuntoJugadores::getJugadores()
+{
+    return &jugadores;
+}
+
 void ConjuntoJugadores::repartirCartas(ConjuntoCartas cartas)
 {
     for (it = jugadores.begin(); it != jugadores.end(); it++) {

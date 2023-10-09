@@ -176,7 +176,7 @@ void Juego::juego()
     crupier->solicitarCard(&cartas);
     cout << "           *************************************\n\n";
     cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo()<<endl;
-
+    iniciarAJugar();
 
 
 }
@@ -195,8 +195,14 @@ void Juego::opcionesJugador()
 void Juego::apuestas() {
     apuestaRonda = cjnJugadores.apuestas();
 }
-void Juego::iniciarJuego()
+void Juego::iniciarAJugar()
 {
+    list<Jugador> jugadores = *cjnJugadores.getJugadores();
+    list<Jugador>::iterator it = cjnJugadores.getIterator();
+    for (it = jugadores.begin(); it != jugadores.end(); it++) {
+        
+
+    }
 }
 
 bool Juego::derrota(jugadorBase* sePasa)//nuevo

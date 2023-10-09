@@ -18,7 +18,7 @@ public:
 	void opcionesJugador();
 	void apuestas();
 
-	void iniciarJuego();
+	void iniciarAJugar(); 
 
 	bool derrota(jugadorBase*);//nuevo
 
