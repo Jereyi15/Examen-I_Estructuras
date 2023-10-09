@@ -1,4 +1,6 @@
 #include "Juego.h"
+#include <sstream>
+using std::stringstream;
 
 Jugador* player;
 menusJuego* menu = new menusJuego();
@@ -237,6 +239,7 @@ void Juego::iniciarAJugar()
                 system("cls");
                 cout << "           *************************************\n\n";
                 cout << cjnJugadores.toStringMazo() << "\n" << crupier->toStringMazo() << endl;
+                cout << "           *************************************\n\n";
                 cout << "Jugador: " << it->toString() << endl;
                 cout << "Desea pedir otra carta? 1. Si / 2. No: ";
                 cin >> opc;
@@ -246,7 +249,27 @@ void Juego::iniciarAJugar()
             } while (opc != 2);
         }
     }
+    verificarGanadores();
+    system("pause");
     resetJugadores();
+}
+
+string Juego::verificarGanadores()
+{
+    stringstream s;
+    list<Jugador> jugadores = *cjnJugadores.getJugadores();
+    list<Jugador>::iterator it = cjnJugadores.getIterator();
+    system("cls");
+    s << "           *************************************\n\n";
+    s << "Ganadores: " << endl;
+    for (it = jugadores.begin(); it != jugadores.end(); it++) {
+        if (derrota(&*it)) {
+            s << it->toString() << "\n";
+            it->ganador((it->getCanApuesta()) * 2);
+        }
+    }
+    s << "           *************************************\n\n";
+    return s.str();
 }
 
 void Juego::resetJugadores()
@@ -263,7 +286,7 @@ void Juego::resetJugadores()
 
 bool Juego::derrota(jugadorBase* sePasa)//nuevo
 {
-    if (sePasa->mas21(sePasa) == true ) {
+    if (crupier->mas21(sePasa) == true ) {
         return true;
     }
     return false;

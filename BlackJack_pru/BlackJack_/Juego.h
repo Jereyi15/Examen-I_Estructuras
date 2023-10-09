@@ -16,9 +16,11 @@ public:
 	void juego();
 	void repartirCartas(ConjuntoCartas);
 	void opcionesJugador();
+	
 	void apuestas();
-
 	void iniciarAJugar(); 
+	string verificarGanadores();
+
 	void resetJugadores();
 
 	bool derrota(jugadorBase*);//nuevo
