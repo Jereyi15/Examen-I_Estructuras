@@ -137,6 +137,7 @@
     <ClCompile Include="jugadorBase.cpp" />
     <ClCompile Include="Mazo.cpp" />
     <ClCompile Include="menusJuego.cpp" />
+    <ClCompile Include="Utiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Carta.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="jugadorBase.h" />
     <ClInclude Include="Mazo.h" />
     <ClInclude Include="menusJuego.h" />
+    <ClInclude Include="Utiles.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlackJack_.rc" />
