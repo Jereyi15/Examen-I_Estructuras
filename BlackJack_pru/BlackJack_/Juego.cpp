@@ -250,7 +250,6 @@ void Juego::iniciarAJugar()
         }
     }
     cout << verificarGanadores();
-    system("pause");
     resetJugadores();
 }
 
@@ -264,8 +263,8 @@ string Juego::verificarGanadores()
     s << "Ganadores: " << endl;
     for (it = jugadores.begin(); it != jugadores.end(); it++) {
         if (!derrota(&*it)) {
+            it->ganador(it->getCanApuesta() * 2);
             s << it->toString() << "\n";
-            it->ganador(it->getCanApuesta()*2);
         }
     }
     s << "           *************************************\n\n";

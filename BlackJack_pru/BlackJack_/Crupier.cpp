@@ -63,6 +63,6 @@ bool Crupier::mas21(Jugador* mano)//metodo que evalua si se pasa de 21 puntos
 		return false;
 	}
 	else
-		return false;
+		return true;
 }
 

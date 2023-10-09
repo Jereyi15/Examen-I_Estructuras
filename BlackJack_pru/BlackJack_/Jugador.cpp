@@ -12,7 +12,7 @@ Jugador::~Jugador()
 
 void Jugador::ganador(int _cant)
 {
-    monedas = monedas + _cant;
+    monedas += _cant;
 }
 
 bool Jugador::hacerApuesta(int _cant)

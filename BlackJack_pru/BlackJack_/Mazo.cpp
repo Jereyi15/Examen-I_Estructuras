@@ -41,7 +41,7 @@ int Mazo::puntajeTotal()
 	stack<Carta> copiaPila = cartasJugador; // Hacemos una copia de la pila
 
 	while (!copiaPila.empty()) {
-		total += stoi(copiaPila.top().getValor());
+		total += copiaPila.top().obtenerValor();
 		copiaPila.pop();
 	}
 
