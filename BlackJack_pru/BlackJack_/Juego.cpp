@@ -195,8 +195,9 @@ void Juego::opcionesJugador()
 void Juego::apuestas() {
     apuestaRonda = cjnJugadores.apuestas();
 }
-/*void Juego::iniciarJuego()
+void Juego::iniciarJuego()
 {
+}
 
 bool Juego::derrota(jugadorBase* sePasa)//nuevo
 {
