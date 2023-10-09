@@ -49,9 +49,9 @@ int menusJuego::jugadores()
 	return opt;
 }
 
-void menusJuego::porDefecto()
+string menusJuego::porDefecto()
 {
-	cout << "-----Error: Codigo no valido" << endl << endl;
+	return "-----Error: Codigo no valido.\n\n";
 }
 
 int menusJuego::menuCartas()

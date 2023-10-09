@@ -19,31 +19,37 @@ Juego::Juego() : crupier(new Crupier("Crupier mesa 1")), apuestaRonda(0)
         system("cls");
 
         switch (option) {
-            case 1: {
-                if (cjnJugadores.cantidadJugadores() == 0) {
-                    cout << "Antes de comenzar el juego debe crear un jugador!" << endl;
-                    system("pause");
-                    break;
-                }
-                else {
-                    instruccionesYreglas();
-                    system("pause");
-                    system("cls");
-
-                    juego();
-                    system("pause");
-                }
+        case 1: {
+            if (cjnJugadores.cantidadJugadores() == 0) {
+                cout << "Antes de comenzar el juego debe crear un jugador!" << endl;
+                system("pause");
                 break;
             }
-            case 2:
-                jugadoresM();
-                break;
+            else {
+                instruccionesYreglas();
+                system("pause");
+                system("cls");
 
-            case 3: {
-                cartasM();
-                break;
+                juego();
+                system("pause");
             }
+            break;
+        }
+        case 2:
+            jugadoresM();
+            break;
 
+        case 3:
+            cartasM();
+            break;
+        case 4:
+            // salir del juego
+            break;
+        default:
+            cout << menusJuego::porDefecto();
+            system("pause");
+            system("cls");
+            break;
         }
     } while (option != 4);
 
@@ -96,8 +102,7 @@ void Juego::jugadoresM()
             //Salir del menu de jugadores
             break;
         default:
-            menusJuego::porDefecto();
-            cout << "-----Error: Codigo no valido" << endl << endl;
+            cout << menusJuego::porDefecto();
             system("pause");
             system("cls");
             break;
@@ -137,8 +142,7 @@ void Juego::cartasM()
             //Salir del menu de cartas
             break;
         default:
-            menusJuego::porDefecto();
-            cout << "-----Error: Codigo no valido" << endl << endl;
+            cout << menusJuego::porDefecto();
             system("pause");
             system("cls");
             break;

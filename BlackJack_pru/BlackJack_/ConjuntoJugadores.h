@@ -12,7 +12,6 @@ public:
 	Jugador* recuperar(string);
 	string toString();
 	string toStringMazo();
-	bool contadorJugadores(); //Verifica que se haya alcanzado el limite de jugadores permitidos
 	int cantidadJugadores();
 	list<Jugador>::iterator getIterator();
 	list<Jugador>* getJugadores();

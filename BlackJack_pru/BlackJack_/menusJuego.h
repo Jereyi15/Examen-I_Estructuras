@@ -11,7 +11,7 @@ public:
 	static int mainMenu();
 	void agregarJugadores();
 	static int jugadores();
-	static void porDefecto();
+	static string porDefecto();
 	static int menuCartas();
 	static void instrucciones();
 	
