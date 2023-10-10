@@ -13,8 +13,8 @@ public:
 
 	virtual void solicitarCard(ConjuntoCartas*) = 0;//opcion de pedir una carta durante el juego
 	virtual bool pasarTurno(jugadorBase*) = 0;//opcion para pasar el turno durante el juego
-	virtual Mazo* getCartasP() = 0;//nuevo
-	virtual string getNombre();//nuevo
+	virtual Mazo* getCartasP() = 0;
+	virtual string getNombre();
 	virtual string toString();
 	virtual void resetCards(); // quita las cartas que anteriormente tenia
 protected:
