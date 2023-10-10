@@ -253,7 +253,14 @@ void Juego::iniciarAJugar()
                 cout << "Desea pedir otra carta? 1. Si / 2. No: ";
                 opc = Utiles::validarEntero();
                 if (opc == 1) {
-                    it->solicitarCard(&cartas);
+                    if (it->getCartasP()->puntajeTotal() <= 21) {
+                        it->solicitarCard(&cartas);
+                    }
+                    else {
+                        cout << "Excedio de 21, por lo que no puede tomar mas cartas.\n";
+                        system("pause");
+                        opc = 2;
+                    }
                 }
             } while (opc != 2);
         }
