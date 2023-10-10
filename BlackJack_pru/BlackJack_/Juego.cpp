@@ -211,8 +211,9 @@ void Juego::apuestas() {
         cout << "Desea realizar apuesta para esta ronda? 1. Si / 2. No: ";
         opc = Utiles::validarEntero();
 
-        if (opc == 1) {
+        if (opc == 1 && it->getMonedas() >= 50) {
             do {
+                ap = 0;
                 cout << "Cuanto desea apostar? ";
                 apuesta = Utiles::validarDecimal();
                 if (apuesta >= 50) {
@@ -230,7 +231,7 @@ void Juego::apuestas() {
             it->resetCards();
         }
         else {
-            cout << "Opcion invalida";
+            cout << "Opcion invalida o el jugador no tiene al menos 50 monedas.\n";
         }
         system("pause");
         system("cls");
