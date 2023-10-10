@@ -21,6 +21,7 @@ public:
 	virtual void resetCards();
 	virtual Mazo* getCartasP();//nuevo
 	virtual bool mas21(jugadorBase*);//nuevo
+	virtual int getMonedas();
 
 private:
 	string _nombre;

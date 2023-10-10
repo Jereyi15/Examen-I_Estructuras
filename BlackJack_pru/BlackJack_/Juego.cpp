@@ -201,7 +201,7 @@ void Juego::apuestas() {
     list<Jugador>::iterator it = cjnJugadores.getIterator();
     int opc = 0;
     int apuesta = 0;
-
+    int ap;
     for (it = jugadores->begin(); it != jugadores->end(); it++) {
         cout << "--------------------------\n";
         cout << "APUESTAS A PARTIR DE 50 MONEDAS.\n";
@@ -212,22 +212,25 @@ void Juego::apuestas() {
         opc = Utiles::validarEntero();
 
         if (opc == 1) {
-            cout << "Cuanto desea apostar? ";
-            apuesta = Utiles::validarDecimal();
-            if (apuesta >= 50) {
-                if (!it->hacerApuesta(apuesta)) {
-                    cout << "\n Apuesta no valida, no cuenta con fondos suficientes \n";
+            do {
+                cout << "Cuanto desea apostar? ";
+                apuesta = Utiles::validarDecimal();
+                if (apuesta >= 50) {
+                    ap = it->getMonedas();
+                    if (!it->hacerApuesta(apuesta)) {
+                        cout << "\n Apuesta no valida, no cuenta con fondos suficientes \n";
+                    }
                 }
-            }
-            else {
-                cout << "\n Apuesta no valida, debe ser mayor a 50 monedas \n";
-            }
+                else {
+                    cout << "\n Apuesta no valida, debe ser mayor a 50 monedas \n";
+                }
+            } while (apuesta < 50 || apuesta > ap);
         }
         else if (opc == 2) {
             it->resetCards();
         }
         else {
-            throw "Opcion invalida";
+            cout << "Opcion invalida";
         }
         system("pause");
         system("cls");
@@ -247,7 +250,7 @@ void Juego::iniciarAJugar()
                 cout << "           *************************************\n\n";
                 cout << "Jugador: " << it->toString() << endl;
                 cout << "Desea pedir otra carta? 1. Si / 2. No: ";
-                cin >> opc;
+                opc = Utiles::validarEntero();
                 if (opc == 1) {
                     it->solicitarCard(&cartas);
                 }

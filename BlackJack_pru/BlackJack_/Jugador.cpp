@@ -90,3 +90,8 @@ bool Jugador::mas21(jugadorBase* mano)//metodo que evalua si se pasa de 21 punto
     }
     return false;
 }
+
+int Jugador::getMonedas()
+{
+    return monedas;
+}
